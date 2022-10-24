@@ -1,8 +1,6 @@
 package com.niuma.blog.pojo;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
@@ -13,19 +11,43 @@ import java.util.Date;
 @Data
 public class Users {
 
+    /**
+     * 用户 id
+     */
     private Long userId;
 
+    /**
+     * 用户名
+     */
     private String userName;
 
+    /**
+     * 用户昵称
+     */
     private String userNickname;
 
+    /**
+     * 用户密码
+     */
     private String userPassword;
 
+    /**
+     * 用户头像链接
+     */
     private String userAvatar;
 
+    /**
+     * 用户邮箱
+     */
     private String userEmail;
 
+    /**
+     * 创建时间
+     */
     private Date createTime;
 
+    /**
+     * 修改时间
+     */
     private Date updateTime;
 }
