@@ -3,6 +3,7 @@ package online.niuma.blog.controller;
 import online.niuma.blog.common.Result;
 import online.niuma.blog.pojo.Users;
 import online.niuma.blog.service.UserService;
+import online.niuma.blog.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +30,8 @@ public class UserController {
      * 获取所有用户信息
      */
     @GetMapping("/findUserAll")
-    public Result<List<Users>> findUserAll() {
-        List<Users> users = this.userService.queryUserAll();
+    public Result<List<UserVo>> findUserAll() {
+        List<UserVo> users = this.userService.queryUserAll();
         return Result.success(users);
     }
 }

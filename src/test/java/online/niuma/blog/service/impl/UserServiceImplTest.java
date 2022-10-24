@@ -1,14 +1,12 @@
 package online.niuma.blog.service.impl;
 
-import online.niuma.blog.pojo.Users;
 import online.niuma.blog.service.UserService;
+import online.niuma.blog.vo.UserVo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author 一颗蛋50斤
@@ -22,8 +20,8 @@ class UserServiceImplTest {
 
     @Test
     void queryUserAll() {
-        List<Users> users = this.userService.queryUserAll();
-        for (Users user : users) {
+        List<UserVo> users = this.userService.queryUserAll();
+        for (UserVo user : users) {
             System.out.println("user = " + user);
         }
     }

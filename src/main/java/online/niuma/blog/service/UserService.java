@@ -1,6 +1,7 @@
 package online.niuma.blog.service;
 
 import online.niuma.blog.pojo.Users;
+import online.niuma.blog.vo.UserVo;
 
 import java.util.List;
 
@@ -13,5 +14,5 @@ public interface UserService {
      * 调用持久层对应的方法查询所有用户的信息
      * @return 所有用户的信息
      */
-    List<Users> queryUserAll();
+    List<UserVo> queryUserAll();
 }
