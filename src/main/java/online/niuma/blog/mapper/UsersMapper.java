@@ -14,5 +14,9 @@ import java.util.List;
 @Repository
 public interface UsersMapper {
 
+    /**
+     * 查询所有的用户信息
+     * @return 所有的用户信息
+     */
     List<Users> queryUsersAll();
 }
