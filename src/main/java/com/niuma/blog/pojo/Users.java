@@ -11,8 +11,6 @@ import java.util.Date;
  * IntelliJ IDEA
  */
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Users {
 
     private Long userId;
