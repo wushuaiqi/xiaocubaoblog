@@ -1,6 +1,6 @@
-package com.niuma.blog.mapper;
+package online.niuma.blog.mapper;
 
-import com.niuma.blog.pojo.Users;
+import online.niuma.blog.pojo.Users;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

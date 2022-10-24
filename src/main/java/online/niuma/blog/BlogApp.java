@@ -1,4 +1,4 @@
-package com.niuma.blog;
+package online.niuma.blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

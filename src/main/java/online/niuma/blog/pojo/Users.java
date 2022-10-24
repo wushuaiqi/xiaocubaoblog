@@ -1,4 +1,4 @@
-package com.niuma.blog.pojo;
+package online.niuma.blog.pojo;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
-package com.niuma.blog.mapper;
+package online.niuma.blog.mapper;
 
-import com.niuma.blog.pojo.Users;
+import online.niuma.blog.pojo.Users;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
