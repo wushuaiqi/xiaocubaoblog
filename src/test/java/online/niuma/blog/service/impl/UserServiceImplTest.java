@@ -25,4 +25,12 @@ class UserServiceImplTest {
             System.out.println("user = " + user);
         }
     }
+
+    @Test
+    void queryUserOne() {
+        String username = "root";
+        String password = "passwd";
+        UserVo userVo = this.userService.queryUserOne(username, password);
+        System.out.println("userVo = " + userVo);
+    }
 }

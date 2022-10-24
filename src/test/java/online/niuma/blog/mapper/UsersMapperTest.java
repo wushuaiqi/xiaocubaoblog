@@ -25,4 +25,12 @@ class UsersMapperTest {
         }
     }
 
+    @Test
+    public void queryUserOne() {
+        String username = "root";
+        String password = "passwd";
+        Users user = this.usersMapper.queryUserOne(username, password);
+        System.out.println("user = " + user);
+    }
+
 }

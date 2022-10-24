@@ -35,6 +35,19 @@ public class UserServiceImpl implements UserService {
         return copyList(users);
     }
 
+    /**
+     * 根据用户名和密码获取用户的信息
+     * todo 将查询到的结果中的日期类型进行格式化
+     * @param username 用户名
+     * @param password 用户密码
+     * @return 用户的信息
+     */
+    @Override
+    public UserVo queryUserOne(String username, String password) {
+        Users user = this.usersMapper.queryUserOne(username, password);
+        return copy(user);
+    }
+
     private UserVo copy(Users users) {
         UserVo userVo = new UserVo();
         BeanUtils.copyProperties(users, userVo);

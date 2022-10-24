@@ -18,4 +18,19 @@
         from xiaocubaoblog_db.tb_users;
     </select>
 
+    <select id="queryUserOne" resultType="Users">
+        select
+            user_id,
+            user_name,
+            user_nickname,
+            user_password,
+            user_avatar,
+            user_email,
+            create_time,
+            update_time
+        from xiaocubaoblog_db.tb_users
+        where user_name=#{username} and user_password=#{password}
+        limit 1;
+    </select>
+
 </mapper>

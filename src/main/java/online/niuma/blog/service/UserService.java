@@ -15,4 +15,12 @@ public interface UserService {
      * @return 所有用户的信息
      */
     List<UserVo> queryUserAll();
+
+    /**
+     * 根据用户名和密码调用持久成相应的方法获取用户的信息
+     * @param username 用户名
+     * @param password 用户密码
+     * @return 获取到的结果
+     */
+    UserVo queryUserOne(String username, String password);
 }
