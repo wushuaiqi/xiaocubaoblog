@@ -5,8 +5,17 @@
 <!--namespace绑定一个对应的mapper接口-->
 <mapper namespace="online.niuma.blog.mapper.UsersMapper">
 
-    <select id="queryUsersAll" resultType="online.niuma.blog.pojo.Users">
-        select * from xiaocubaoblog_db.tb_users;
+    <select id="queryUsersAll" resultType="Users">
+        select
+            user_id,
+            user_name,
+            user_nickname,
+            user_password,
+            user_avatar,
+            user_email,
+            create_time,
+            update_time
+        from xiaocubaoblog_db.tb_users;
     </select>
 
 </mapper>
