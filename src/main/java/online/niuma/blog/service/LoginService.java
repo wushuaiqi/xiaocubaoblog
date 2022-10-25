@@ -1,5 +1,8 @@
 package online.niuma.blog.service;
 
+import online.niuma.blog.common.Result;
+import online.niuma.blog.pojo.Users;
+import online.niuma.blog.vo.UserVo;
 import online.niuma.blog.vo.params.LoginParam;
 
 /**
@@ -12,5 +15,5 @@ public interface LoginService {
      * @param loginParam 用户登陆所携带的参数
      * @return 验证是否成功
      */
-    boolean login(LoginParam loginParam);
+    Result<UserVo> login(LoginParam loginParam);
 }

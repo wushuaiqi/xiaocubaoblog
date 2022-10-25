@@ -49,6 +49,9 @@ public class UserServiceImpl implements UserService {
     }
 
     private UserVo copy(Users users) {
+        if (users == null) {
+            return null;
+        }
         UserVo userVo = new UserVo();
         BeanUtils.copyProperties(users, userVo);
         userVo.setCreateTime(new DateTime(users.getCreateTime()).toString("yyyy-MM-dd HH:mm"));
