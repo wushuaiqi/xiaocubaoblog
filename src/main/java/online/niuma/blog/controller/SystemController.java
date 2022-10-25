@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SystemController {
 
+    @GetMapping("/login")
+    public String login() {
+        log.info("request utl: /login");
+        return "login";
+    }
+
     @GetMapping({"/", "index"})
     public String index() {
         log.info("request utl: / or /index");

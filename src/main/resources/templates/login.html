@@ -43,7 +43,7 @@
 						<div class="music-shoulder"></div>
 					</div>
 					<!--消息框-->
-					<div class="music-news">来了,老弟！</div>
+					<div class="music-news">来了,宝宝！</div>
 				</div>
 
 				<!--右手-->
@@ -58,11 +58,11 @@
 
 			<!--1-->
 			<div class="music-lgin-text">
-				<input class="inputname inputs" type="text" placeholder="用户名" value="admin"/>
+				<input class="inputname inputs" type="text" placeholder="username" id="username"/>
 			</div>
 			<!--2-->
 			<div class="music-lgin-text">
-				<input type="password" class="mima inputs" placeholder="密码" />
+				<input type="password" class="mima inputs" placeholder="password" id="password"/>
 			</div>
 			<!--3-->
 			<div class="music-lgin-text">
@@ -99,19 +99,36 @@
 			//注册正则 简单判断
 			 
             $('.music-qd').click(function(){
-                if(($('.inputname').val()=='')){
+                if(($('.inputname').val()==='')){
                     $(".music-news").html("请输入名称")      
-                }else if(($('.mima').val()=='')){
+                }else if(($('.mima').val()==='')){
                 	 $(".music-news").html("请输入密码")
                     $(".music-news").addClass("block")
                 }else{
-                	alert('提交ajax')
-                }      
+					let username = $("#username").val()
+					let password = $("#password").val()
+					console.log(username)
+					console.log(password)
+					$.post(
+							'/login.do',
+							{
+								userName: username,
+								userPassword: password
+							},
+							(result) => {
+								if (result.code == 200) {
+									window.location.href='/index'
+								} else {
+									alert("错误代码:" + result.code + " 错误信息" + result.msg)
+								}
+							}
+					)
+                }
             })
      
 
 			
-			
+
 		</script>
 
 	</body>

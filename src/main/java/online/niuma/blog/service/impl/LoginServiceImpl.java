@@ -2,7 +2,6 @@ package online.niuma.blog.service.impl;
 
 import online.niuma.blog.common.ErrorCode;
 import online.niuma.blog.common.Result;
-import online.niuma.blog.pojo.Users;
 import online.niuma.blog.service.LoginService;
 import online.niuma.blog.service.UserService;
 import online.niuma.blog.vo.UserVo;
