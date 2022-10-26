@@ -11,7 +11,7 @@ import java.util.Date;
 @Data
 public class Articles {
 
-    private Long articleId;
+    private String articleId;
 
     private String articleTitle;
 
