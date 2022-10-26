@@ -19,7 +19,7 @@ public class Articles {
 
     private Long userId;
 
-    private Long contentId;
+    private String contentId;
 
     private int deleted;
 

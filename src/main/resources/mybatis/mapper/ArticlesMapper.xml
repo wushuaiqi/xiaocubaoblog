@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace绑定一个对应的mapper接口-->
+<mapper namespace="online.niuma.blog.mapper.ArticlesMapper">
+
+    <insert id="addArticle" parameterType="Articles">
+        insert into xiaocubaoblog_db.tb_articles
+            (
+             article_id,
+             article_title,
+             article_sketch,
+             user_id,
+             content_id,
+             create_time,
+             update_time
+             )
+        values
+            (
+             #{articleId},
+             #{articleTitle},
+             #{articleSketch},
+             #{userId},
+             #{contentId},
+             #{createTime},
+             #{updateTime}
+            );
+    </insert>
+
+</mapper>
