@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>新增博客</title>
+  <link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{css/bootstrap-theme.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{css/addArticle.css}">
 </head>
 <body>
-<p>add article page</p>
+  <div class="container" id="main">
+    <p class="lead" style="color: white">被人想起真的是一件很美好的事情.</p>
+    <input type="text" class="form-control" placeholder="标题" id="title">
+    <textarea class="form-control" rows="20" placeholder="正文" id="content"></textarea>
+    <button type="button" class="btn btn-primary" id="commit-button">提交</button>
+  </div>
 </body>
 </html>

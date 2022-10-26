@@ -33,14 +33,14 @@ public class LoginController {
     }
 
     @PostMapping("/login.do")
-    public Result<UserVo> loginDo(LoginParam loginParam, HttpServletRequest request) {
+    public Result<UserVo> loginDo(LoginParam loginParam, HttpSession session) {
         log.info("request utl: /login.do");
         log.info("login param : {}", loginParam);
         Result<UserVo> loginInfo = this.loginService.login(loginParam);
         System.out.println("loginInfo.getData() = " + loginInfo.getData());
         Integer code = 200;
         if (code.equals(loginInfo.getCode())) {
-            request.getSession().setAttribute(Constants.USER_INFO, loginInfo.getData());
+            session.setAttribute(Constants.USER_INFO, loginInfo.getData());
         }
         return loginInfo;
     }
