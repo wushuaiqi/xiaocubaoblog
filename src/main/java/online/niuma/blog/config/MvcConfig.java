@@ -15,12 +15,10 @@ public class MvcConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginHandlerInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/", "/login", "/css/**", "/js/**", "/images/**", "/fonts/**");
+                .excludePathPatterns("/login.do", "/login", "/css/**", "/js/**", "/images/**", "/fonts/**");
     }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("page/index");
-        registry.addViewController("/page/index.html").setViewName("page/index");
     }
 }
