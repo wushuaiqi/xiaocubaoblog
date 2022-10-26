@@ -21,9 +21,17 @@
         let userId = [[${userInfo.userId}]];
         let articleTitle = $("#title").val()
         let articleContent = $("#content").val()
-        console.log("userId: " + userId)
-        console.log("title: " + articleTitle)
-        console.log("content: " + articleContent)
+        $.post(
+            '/articles/addArticle',
+            {
+                userId: userId,
+                articleTitle: articleTitle,
+                content: articleContent
+            },
+            function (result) {
+                console.log(result)
+            }
+        )
     }
   </script>
 </body>

@@ -39,13 +39,18 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public boolean addArticle(ArticleParam articleParam) {
         log.info("execute addArticle() function");
+        int contentLength = 30;
         String articleId = UUID.randomUUID().toString();
         String contentId = UUID.randomUUID().toString();
         Articles article = new Articles();
         Content content = new Content();
         article.setArticleId(articleId);
         article.setArticleTitle(articleParam.getArticleTitle());
-        article.setArticleSketch(articleParam.getContent().substring(0, 30));
+        if (articleParam.getContent().length() < contentLength) {
+            article.setArticleSketch(articleParam.getContent());
+        } else {
+            article.setArticleSketch(articleParam.getContent().substring(0, 30));
+        }
         article.setUserId(articleParam.getUserId());
         article.setContentId(contentId);
         article.setDeleted(0);
