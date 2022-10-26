@@ -1,5 +1,6 @@
-package online.niuma.blog.service;
+package online.niuma.blog.service.impl;
 
+import online.niuma.blog.service.ArticleService;
 import online.niuma.blog.vo.params.ArticleParam;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
