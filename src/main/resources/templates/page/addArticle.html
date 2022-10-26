@@ -29,7 +29,12 @@
                 content: articleContent
             },
             function (result) {
-                console.log(result)
+                if (result.code == 200) {
+                    alert("提交成功")
+                    window.location.href='/index'
+                } else {
+                    alert("错误代码:" + result.code + " , " + result.msg);
+                }
             }
         )
     }
