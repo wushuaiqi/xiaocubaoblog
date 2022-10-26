@@ -29,4 +29,9 @@ public class SystemController {
         return "login";
     }
 
+    @GetMapping("/addArticle")
+    public String toAddArticlePage() {
+        return "page/addArticle";
+    }
+
 }
