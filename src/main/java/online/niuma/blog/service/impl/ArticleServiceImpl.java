@@ -1,12 +1,15 @@
 package online.niuma.blog.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import online.niuma.blog.mapper.ArticlesMapper;
 import online.niuma.blog.pojo.Articles;
 import online.niuma.blog.pojo.Content;
 import online.niuma.blog.service.ArticleService;
+import online.niuma.blog.service.ContentService;
 import online.niuma.blog.vo.ArticleVo;
 import online.niuma.blog.vo.params.ArticleParam;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -19,6 +22,20 @@ import java.util.UUID;
 @Slf4j
 @Service
 public class ArticleServiceImpl implements ArticleService {
+
+    private ArticlesMapper articlesMapper;
+    private ContentService contentService;
+
+    @Autowired
+    public void setArticlesMapper(ArticlesMapper articlesMapper) {
+        this.articlesMapper = articlesMapper;
+    }
+
+    @Autowired
+    public void setContentService(ContentService contentService) {
+        this.contentService = contentService;
+    }
+
     @Override
     public boolean addArticle(ArticleParam articleParam) {
         log.info("execute addArticle() function");
@@ -39,8 +56,12 @@ public class ArticleServiceImpl implements ArticleService {
         content.setContentText(articleParam.getContent());
         content.setCreateTime(new Date());
         content.setUpdateTime(new Date());
-        System.out.println("article = " + article);
-        System.out.println("content = " + content);
-        return false;
+        boolean contentFlag = this.contentService.addContent(content);
+        boolean articleFlag = false;
+        int i = this.articlesMapper.addArticle(article);
+        if (i > 0) {
+            articleFlag = true;
+        }
+        return contentFlag && articleFlag;
     }
 }
