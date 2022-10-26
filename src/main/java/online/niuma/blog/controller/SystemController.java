@@ -23,4 +23,10 @@ public class SystemController {
         log.info("request utl: / or /index");
         return "page/index";
     }
+
+    @GetMapping("/logout")
+    public String logout() {
+        return "login";
+    }
+
 }
