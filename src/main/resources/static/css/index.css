@@ -5,3 +5,23 @@ body {
     background-attachment: fixed;
     background-repeat:no-repeat;
 }
+
+.head {
+    background-color: #9acfea;
+    margin-top: 5px;
+}
+
+.head-button-div {
+    height: 60px;
+    margin: auto;
+}
+
+.head-button {
+    margin-top: 13px;
+}
+
+.avatar {
+    background-color: #3e8f3e;
+    height: 100%;
+    margin: 0 auto;
+}
