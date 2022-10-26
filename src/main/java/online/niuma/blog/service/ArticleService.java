@@ -1,6 +1,8 @@
 package online.niuma.blog.service;
 
 import online.niuma.blog.pojo.Articles;
+import online.niuma.blog.vo.ArticleVo;
+import online.niuma.blog.vo.params.ArticleParam;
 
 /**
  * @author 一颗蛋50斤
@@ -10,8 +12,8 @@ public interface ArticleService {
 
     /**
      * 调用添加文章
-     * @param article 文章信息
+     * @param articleParam 文章信息
      * @return 是否添加成功
      */
-    boolean addArticle(Articles article);
+    boolean addArticle(ArticleParam articleParam);
 }
