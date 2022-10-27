@@ -53,9 +53,9 @@ body {
 }
 
 .article-info-z {
-    background-color: #f9f9f9;
     width: 100%;
     height: 60px;
+    padding: 0 10px;
 }
 
 .article-info-x {

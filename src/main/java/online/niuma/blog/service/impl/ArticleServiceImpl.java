@@ -39,7 +39,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public boolean addArticle(ArticleParam articleParam) {
         log.info("execute addArticle() function");
-        int contentLength = 150;
+        int contentLength = 140;
         String articleId = UUID.randomUUID().toString();
         String contentId = UUID.randomUUID().toString();
         Articles article = new Articles();
