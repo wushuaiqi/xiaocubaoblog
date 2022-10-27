@@ -27,3 +27,44 @@ body {
     height: 100%;
     margin: 0 auto;
 }
+
+.article-div {
+    background-color: #00B8A0;
+    margin-top: 15px;
+}
+
+.article-info {
+    width: 100%;
+    height: 120px;
+    background-color: #3477AF;
+    margin-top: 10px;
+    border-radius: 15px;
+}
+
+.article-info-s {
+    width: 100%;
+    height: 30px;
+}
+
+.article-info-s a {
+    font-size: 20px;
+    color: #0f0f0f;
+    margin-left: 10px;
+}
+
+.article-info-z {
+    background-color: #f9f9f9;
+    width: 100%;
+    height: 60px;
+}
+
+.article-info-x {
+    background-color: crimson;
+    width: 100%;
+    height: 30px;
+}
+
+.article-right-div {
+    background-color: #C598F0;
+    margin-top: 15px;
+}

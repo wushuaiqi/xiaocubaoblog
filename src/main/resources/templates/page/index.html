@@ -10,10 +10,11 @@
 </head>
 <body>
   <div class="container">
+    <!-- head -->
     <div class="row head">
       <!-- title -->
       <div class="col-md-8">
-        <h3>每一个美好瞬间，从遇见你开始&nbsp;&nbsp;<small>I miss you!</small></h3>
+        <h3>每一个美好瞬间，从遇见你开始&nbsp;&nbsp;<small>I miss you ^v^</small></h3>
       </div>
       <div class="col-md-3 head-button-div">
         <button type="button" class="btn btn-success head-button" onclick="toAddArticlePage()">新增内容</button>
@@ -25,6 +26,34 @@
         <img th:src="@{${userInfo.userAvatar}}" alt="头像" class="img-rounded avatar">
       </div>
     </div>
+    <!-- head end -->
+
+    <!-- article all info -->
+    <div class="col-lg-8 article-div">
+      <div class="article-info">
+        <div class="article-info-s">
+          <a href="#">title</a>
+        </div>
+        <div class="article-info-z">
+          <p>
+            牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛
+            牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛
+            牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛
+            牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛
+            牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛牛······
+          </p>
+        </div>
+        <div class="article-info-x">
+        </div>
+      </div>
+      <div class="article-info"></div>
+    </div>
+    <!-- article all info end -->
+
+    <!-- article right -->
+    <div class="col-lg-4 article-right-div">
+    </div>
+    <!-- article right end -->
   </div>
 
   <script type="text/javascript" th:src="@{js/bootstrap.js}"></script>

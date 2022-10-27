@@ -39,7 +39,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public boolean addArticle(ArticleParam articleParam) {
         log.info("execute addArticle() function");
-        int contentLength = 30;
+        int contentLength = 150;
         String articleId = UUID.randomUUID().toString();
         String contentId = UUID.randomUUID().toString();
         Articles article = new Articles();
@@ -49,7 +49,7 @@ public class ArticleServiceImpl implements ArticleService {
         if (articleParam.getContent().length() < contentLength) {
             article.setArticleSketch(articleParam.getContent());
         } else {
-            article.setArticleSketch(articleParam.getContent().substring(0, 30));
+            article.setArticleSketch(articleParam.getContent().substring(0, contentLength));
         }
         // 将获取到的 content 内容进行格式装换
         String[] strList = articleParam.getContent().split("\n");
