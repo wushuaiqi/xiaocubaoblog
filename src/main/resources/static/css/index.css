@@ -7,8 +7,10 @@ body {
 }
 
 .head {
-    background-color: #9acfea;
-    margin-top: 5px;
+    background-color: #FFCFEE;
+    margin-top: 15px;
+    border: 1px solid;
+    border-radius: 15px;
 }
 
 .head-button-div {

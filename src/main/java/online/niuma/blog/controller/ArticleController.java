@@ -29,15 +29,6 @@ public class ArticleController {
     @PostMapping("/addArticle")
     public Result<String> addArticle(ArticleParam articleParam) {
         log.info("come ArticleController execute addArticle function");
-        String content = articleParam.getContent();
-        System.out.println("content = " + content);
-        // 将获取到的 content 内容进行格式装换
-        String[] strList = content.split("\n");
-        String tmp = strList[0];
-        for (int i = 1; i < strList.length; i++) {
-            tmp = String.join("<br/>", tmp, strList[i]);
-        }
-        articleParam.setContent(tmp);
         boolean isCommit = this.articleService.addArticle(articleParam);
         if (isCommit) {
             return Result.success("提交成功");

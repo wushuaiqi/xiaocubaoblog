@@ -51,6 +51,13 @@ public class ArticleServiceImpl implements ArticleService {
         } else {
             article.setArticleSketch(articleParam.getContent().substring(0, 30));
         }
+        // 将获取到的 content 内容进行格式装换
+        String[] strList = articleParam.getContent().split("\n");
+        String tmp = strList[0];
+        for (int i = 1; i < strList.length; i++) {
+            tmp = String.join("<br/>", tmp, strList[i]);
+        }
+        articleParam.setContent(tmp);
         article.setUserId(articleParam.getUserId());
         article.setContentId(contentId);
         article.setDeleted(0);
@@ -58,7 +65,7 @@ public class ArticleServiceImpl implements ArticleService {
         article.setUpdateTime(new Date());
         content.setContentId(contentId);
         content.setArticleId(articleId);
-        content.setContentText(articleParam.getContent());
+        content.setContentText(tmp);
         content.setCreateTime(new Date());
         content.setUpdateTime(new Date());
         boolean contentFlag = this.contentService.addContent(content);

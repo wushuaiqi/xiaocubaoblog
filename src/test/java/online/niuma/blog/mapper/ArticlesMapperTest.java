@@ -1,11 +1,14 @@
 package online.niuma.blog.mapper;
 
+import online.niuma.blog.dto.ArticleDto;
 import online.niuma.blog.pojo.Articles;
+import online.niuma.blog.vo.ArticleVo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -38,5 +41,13 @@ class ArticlesMapperTest {
         System.out.println("article.toString() = " + article.toString());
         int i = this.articlesMapper.addArticle(article);
         System.out.println(i);
+    }
+
+    @Test
+    void queryArticleAll() {
+        List<ArticleVo> articles = this.articlesMapper.queryArticleAll();
+        for (ArticleVo article : articles) {
+            System.out.println(article);
+        }
     }
 }
