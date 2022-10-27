@@ -21,22 +21,29 @@
         let userId = [[${userInfo.userId}]];
         let articleTitle = $("#title").val()
         let articleContent = $("#content").val()
-        $.post(
-            '/articles/addArticle',
-            {
-                userId: userId,
-                articleTitle: articleTitle,
-                content: articleContent
-            },
-            function (result) {
-                if (result.code == 200) {
-                    alert("提交成功")
-                    window.location.href='/index'
-                } else {
-                    alert("错误代码:" + result.code + " , " + result.msg);
+        if (articleTitle == '') {
+            alert("请输入标题")
+        } else if (articleContent == '') {
+            alert("请输入内容")
+        } else {
+            $.post(
+                '/articles/addArticle',
+                {
+                    userId: userId,
+                    articleTitle: articleTitle,
+                    content: articleContent
+                },
+                function (result) {
+                    if (result.code == 200) {
+                        alert("提交成功")
+                        window.location.href='/index'
+                    } else {
+                        alert("错误代码:" + result.code + " , " + result.msg);
+                    }
                 }
-            }
-        )
+            )
+        }
+        console.log(articleContent)
     }
   </script>
 </body>
