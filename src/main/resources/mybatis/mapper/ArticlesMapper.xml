@@ -28,7 +28,7 @@
             );
     </insert>
 
-    <select id="queryArticleAll" resultType="online.niuma.blog.vo.ArticleVo">
+    <select id="queryArticleAll" resultType="online.niuma.blog.dto.ArticleDto">
         select
             article_id,
             article_title,

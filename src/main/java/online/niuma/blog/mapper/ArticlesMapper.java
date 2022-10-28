@@ -24,5 +24,10 @@ public interface ArticlesMapper {
      */
     int addArticle(Articles article);
 
-    List<ArticleVo> queryArticleAll();
+    /**
+     * 查询所有的文章信息
+     * 查询文章的标题、简介、作则、创建时间
+     * @return 所有的文章信息
+     */
+    List<ArticleDto> queryArticleAll();
 }

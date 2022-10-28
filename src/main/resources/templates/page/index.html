@@ -29,20 +29,20 @@
     <!-- head end -->
 
     <!-- article all info -->
-    <div class="col-lg-8 article-div">
+    <div class="col-lg-8 article-div" th:each="article:${articles}">
       <div class="article-info">
         <div class="article-info-s">
-          <a href="#">title</a>
+          <a href="#" th:text="${article.getArticleTitle()}"></a>
         </div>
         <div class="article-info-z">
-          <p>content</p>
+          <p th:text="${article.getArticleSketch()}"></p>
         </div>
         <div class="article-info-x">
           <div class="col-lg-2 article-author">
-            <p class="text-left">username</p>
+            <p class="text-left" th:text="${article.getUserName()}"></p>
           </div>
           <div class="col-lg-2 article-createDate">
-            <p class="text-right">createdate</p>
+            <p class="text-right" th:text="${article.getCreateTime()}"></p>
           </div>
         </div>
       </div>

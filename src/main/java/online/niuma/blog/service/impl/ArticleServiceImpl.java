@@ -1,6 +1,7 @@
 package online.niuma.blog.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import online.niuma.blog.dto.ArticleDto;
 import online.niuma.blog.mapper.ArticlesMapper;
 import online.niuma.blog.pojo.Articles;
 import online.niuma.blog.pojo.Content;
@@ -8,11 +9,14 @@ import online.niuma.blog.service.ArticleService;
 import online.niuma.blog.service.ContentService;
 import online.niuma.blog.vo.ArticleVo;
 import online.niuma.blog.vo.params.ArticleParam;
+import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -76,4 +80,26 @@ public class ArticleServiceImpl implements ArticleService {
         }
         return contentFlag && articleFlag;
     }
+
+    @Override
+    public List<ArticleVo> getArticleInfoAll() {
+        List<ArticleDto> articleDto = this.articlesMapper.queryArticleAll();
+        return copyList(articleDto);
+    }
+
+    private ArticleVo copy(ArticleDto articleDto) {
+        ArticleVo articleVo = new ArticleVo();
+        BeanUtils.copyProperties(articleDto, articleVo);
+        articleVo.setCreateTime(new DateTime(articleDto.getCreateTime()).toString("yyyy-MM-dd HH:mm"));
+        return articleVo;
+    }
+
+    private List<ArticleVo> copyList(List<ArticleDto> articleDtoList) {
+        ArrayList<ArticleVo> articleVoList = new ArrayList<>();
+        for (ArticleDto articleDto : articleDtoList) {
+            articleVoList.add(copy(articleDto));
+        }
+        return articleVoList;
+    }
+
 }

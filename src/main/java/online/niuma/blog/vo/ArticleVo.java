@@ -19,6 +19,6 @@ public class ArticleVo {
 
     private String userName;
 
-    private Date createTime;
+    private String createTime;
 
 }

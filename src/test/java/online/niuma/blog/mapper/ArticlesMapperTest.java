@@ -45,9 +45,9 @@ class ArticlesMapperTest {
 
     @Test
     void queryArticleAll() {
-        List<ArticleVo> articles = this.articlesMapper.queryArticleAll();
-        for (ArticleVo article : articles) {
-            System.out.println(article);
+        List<ArticleDto> articleDtoList = this.articlesMapper.queryArticleAll();
+        for (ArticleDto articleDto : articleDtoList) {
+            System.out.println(articleDto);
         }
     }
 }
