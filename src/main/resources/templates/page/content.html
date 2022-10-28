@@ -3,12 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>article content page</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap-theme.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/content.css}">
 </head>
 <body>
   <input type="hidden" th:value="${articleId}" id="articleId">
 
-  <h1 id="article-title"></h1>
-  <p id="article-content"></p>
+  <div class="container article-info">
+    <div class="col-lg-10 col-lg-offset-1 article-title text-center">
+      <h1 id="article-title"></h1>
+      <hr>
+    </div>
+    <div class="col-lg-10 col-lg-offset-1 article-content">
+        <p id="article-content"></p>
+    </div>
+    <div class="col-lg-10 col-lg-offset-1 article-author">
+      <p id="article-author" class="text-right"></p>
+    </div>
+    <div class="col-lg-10 col-lg-offset-1 article-date">
+      <p id="article-date" class="text-right"></p>
+      <hr>
+    </div>
+  </div>
+
 
   <script th:src="@{/js/jquery-1.9.1.min.js}"></script>
   <script>
@@ -21,6 +39,8 @@
               console.log(result)
               $("#article-title").html(result.data.articleTitle)
               $("#article-content").html(result.data.contentText)
+              $("#article-author").html(result.data.userName)
+              $("#article-date").html(result.data.createTime)
           }
       )
   </script>

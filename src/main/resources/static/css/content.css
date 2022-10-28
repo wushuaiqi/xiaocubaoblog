@@ -1,0 +1,31 @@
+
+
+.article-info {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #8a6d3b;
+    border-radius: 15px;
+    border-color: #0f0f0f;
+}
+
+.article-title {
+    /*background-color: #8a6d3b;*/
+}
+
+.article-content {
+    margin-top: 10px;
+    /*background-color: #6a5585;*/
+}
+
+.article-author {
+    margin-top: 20px;
+}
+
+#article-author {
+    font-size: 20px;
+}
+
+.article-date {
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
