@@ -1,6 +1,7 @@
 package online.niuma.blog.mapper;
 
 import online.niuma.blog.dto.ArticleDto;
+import online.niuma.blog.dto.ContentDto;
 import online.niuma.blog.pojo.Articles;
 import online.niuma.blog.vo.ArticleVo;
 import org.junit.jupiter.api.Test;
@@ -49,5 +50,12 @@ class ArticlesMapperTest {
         for (ArticleDto articleDto : articleDtoList) {
             System.out.println(articleDto);
         }
+    }
+
+    @Test
+    void queryArticleOne() {
+        String articleId = "1490a809-c053-4821-8214-3a356b9b5891";
+        ContentDto articleInfo = this.articlesMapper.queryArticleOne(articleId);
+        System.out.println("articleInfo = " + articleInfo);
     }
 }

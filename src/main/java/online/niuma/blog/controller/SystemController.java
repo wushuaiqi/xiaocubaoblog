@@ -1,19 +1,17 @@
 package online.niuma.blog.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import online.niuma.blog.pojo.Content;
-import online.niuma.blog.pojo.Users;
 import online.niuma.blog.service.ArticleService;
 import online.niuma.blog.utils.Constants;
 import online.niuma.blog.vo.ArticleVo;
+import online.niuma.blog.vo.ContentVo;
 import online.niuma.blog.vo.UserVo;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -53,15 +51,24 @@ public class SystemController {
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
+        log.info("request: /logout");
         session.removeAttribute(Constants.USER_INFO);
         return "login";
     }
 
     @GetMapping("/addArticle")
     public String toAddArticlePage(HttpSession session, Model model) {
+        log.info("request: /addArticle");
         UserVo userInfo = (UserVo) session.getAttribute(Constants.USER_INFO);
         model.addAttribute(Constants.USER_INFO, userInfo);
         return "page/addArticle";
+    }
+
+    @GetMapping("articles/catArticle/{id}")
+    public String toArticleContent(@PathVariable("id") String articleId, Model model) {
+        log.info("request: /articles/catArticle/{}", articleId);
+        model.addAttribute("articleId", articleId);
+        return "page/content";
     }
 
 }

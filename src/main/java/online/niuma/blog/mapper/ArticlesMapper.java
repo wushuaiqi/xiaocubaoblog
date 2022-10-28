@@ -1,6 +1,7 @@
 package online.niuma.blog.mapper;
 
 import online.niuma.blog.dto.ArticleDto;
+import online.niuma.blog.dto.ContentDto;
 import online.niuma.blog.pojo.Articles;
 import online.niuma.blog.vo.ArticleVo;
 import org.apache.ibatis.annotations.Mapper;
@@ -30,4 +31,11 @@ public interface ArticlesMapper {
      * @return 所有的文章信息
      */
     List<ArticleDto> queryArticleAll();
+
+    /**
+     * 根据文章 id 查询文章的信息和内容
+     * @param articleId 文章 id
+     * @return 文章的信息和内容
+     */
+    ContentDto queryArticleOne(@Param("articleId") String articleId);
 }

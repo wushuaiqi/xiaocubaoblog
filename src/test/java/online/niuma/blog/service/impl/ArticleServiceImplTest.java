@@ -2,6 +2,7 @@ package online.niuma.blog.service.impl;
 
 import online.niuma.blog.service.ArticleService;
 import online.niuma.blog.vo.ArticleVo;
+import online.niuma.blog.vo.ContentVo;
 import online.niuma.blog.vo.params.ArticleParam;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,12 @@ class ArticleServiceImplTest {
         for (ArticleVo articleInfo : articleInfoAll) {
             System.out.println(articleInfo);
         }
+    }
+
+    @Test
+    void queryArticleOneById() {
+        String articleId = "1490a809-c053-4821-8214-3a356b9b5891";
+        ContentVo articleInfo = this.articleService.queryArticleOneById(articleId);
+        System.out.println("articleInfo = " + articleInfo);
     }
 }

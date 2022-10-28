@@ -2,12 +2,14 @@ package online.niuma.blog.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import online.niuma.blog.dto.ArticleDto;
+import online.niuma.blog.dto.ContentDto;
 import online.niuma.blog.mapper.ArticlesMapper;
 import online.niuma.blog.pojo.Articles;
 import online.niuma.blog.pojo.Content;
 import online.niuma.blog.service.ArticleService;
 import online.niuma.blog.service.ContentService;
 import online.niuma.blog.vo.ArticleVo;
+import online.niuma.blog.vo.ContentVo;
 import online.niuma.blog.vo.params.ArticleParam;
 import org.joda.time.DateTime;
 import org.springframework.beans.BeanUtils;
@@ -40,6 +42,10 @@ public class ArticleServiceImpl implements ArticleService {
         this.contentService = contentService;
     }
 
+    /**
+     * 添加文章
+     * @param articleParam 文章信息
+     */
     @Override
     public boolean addArticle(ArticleParam articleParam) {
         log.info("execute addArticle() function");
@@ -81,10 +87,26 @@ public class ArticleServiceImpl implements ArticleService {
         return contentFlag && articleFlag;
     }
 
+    /**
+     * 查询所有的文章信息
+     */
     @Override
     public List<ArticleVo> getArticleInfoAll() {
         List<ArticleDto> articleDto = this.articlesMapper.queryArticleAll();
         return copyList(articleDto);
+    }
+
+    /**
+     * 根据文章的 id 查询文章的信息
+     * @param articleId 文章 id
+     */
+    @Override
+    public ContentVo queryArticleOneById(String articleId) {
+        ContentVo contentVo = new ContentVo();
+        ContentDto articleInfo = this.articlesMapper.queryArticleOne(articleId);
+        BeanUtils.copyProperties(articleInfo, contentVo);
+        contentVo.setCreateTime(new DateTime(articleInfo.getCreateTime()).toString("yyyy-MM-dd HH:mm"));
+        return contentVo;
     }
 
     private ArticleVo copy(ArticleDto articleDto) {

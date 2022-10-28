@@ -12,6 +12,7 @@ public enum ErrorCode {
     PARAMS_ERROR(10001, "参数错误"),
     USERNAME_PWD_NOT_EXIST(10002, "用户名或密码不存在"),
     COMMIT_ERROR(10003, "提交失败"),
+    GET_ERROR(10004, "提交失败"),
     ;
 
     private Integer code;
