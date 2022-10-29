@@ -19,7 +19,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    UsersMapper usersMapper;
+    private UsersMapper usersMapper;
 
     @Autowired
     public void setUsersMapper(UsersMapper usersMapper) {

@@ -14,7 +14,7 @@ import java.util.List;
 public interface ArticleService {
 
     /**
-     * 调用添加文章
+     * 添加文章信息
      * @param articleParam 文章信息
      * @return 是否添加成功
      */

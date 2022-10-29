@@ -32,14 +32,21 @@ public class LoginController {
         this.loginService = loginService;
     }
 
+    /**
+     * 登陆请求
+     * todo 调用 Service 层对应的登陆方法获取用户的信息
+     * 如果查询到了用户的信息则表示登陆成功
+     * @param loginParam 用户登陆请求的封装对象
+     * @param session HttpSession
+     * @return 如果登陆成功则返回成功和用户的信息反之返回错误信息
+     */
     @PostMapping("/login.do")
     public Result<UserVo> loginDo(LoginParam loginParam, HttpSession session) {
         log.info("request utl: /login.do");
-        log.info("login param : {}", loginParam);
         Result<UserVo> loginInfo = this.loginService.login(loginParam);
-        System.out.println("loginInfo.getData() = " + loginInfo.getData());
         Integer code = 200;
         if (code.equals(loginInfo.getCode())) {
+            // 如果验证成功则将用户的信息存入 session 中
             session.setAttribute(Constants.USER_INFO, loginInfo.getData());
         }
         return loginInfo;

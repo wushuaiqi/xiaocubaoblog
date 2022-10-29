@@ -11,13 +11,18 @@ import java.util.Date;
 @Data
 public class Content {
 
+    /**文章的 id*/
     private String contentId;
 
+    /**文章的内容*/
     private String contentText;
 
+    /**文章的 id*/
     private String articleId;
 
+    /**创建的时间*/
     private Date createTime;
 
+    /**修改的时间*/
     private Date updateTime;
 }

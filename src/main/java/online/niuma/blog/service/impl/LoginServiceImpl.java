@@ -42,6 +42,7 @@ public class LoginServiceImpl implements LoginService {
         if (StringUtils.isBlank(username) || StringUtils.isBlank(password)) {
             return Result.fail(ErrorCode.PARAMS_ERROR.getCode(), ErrorCode.PARAMS_ERROR.getMsg());
         }
+        // 使用 md5 对密码进行加密处理
         password = DigestUtils.md5Hex(password + slat);
         UserVo user = this.userService.queryUserOne(username, password);
         // 如果查询出来的结果为空，则表示账号和密码不正确

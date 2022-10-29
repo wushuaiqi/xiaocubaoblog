@@ -28,8 +28,6 @@ public class MyEmail {
     @Async
     public void sendMail(String emailTitle, String emailContent, String toEmail) {
         log.info("发生邮件给:{}", toEmail);
-        System.out.println("this.emailTitle = " + emailTitle);
-        System.out.println("emailTitle = " + emailTitle);
         SimpleMailMessage message = new SimpleMailMessage();
         message.setSubject(emailTitle);
         message.setText(emailContent);

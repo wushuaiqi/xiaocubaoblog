@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginHandlerInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        // 验证 session 中是否有用户的信息
+        // 如果有用户的信息则放行否则重定向到登陆页面
         log.info("come LoginHandlerInterceptor class execute preHandle()");
         Object userInfo = request.getSession().getAttribute(Constants.USER_INFO);
         if (userInfo == null) {

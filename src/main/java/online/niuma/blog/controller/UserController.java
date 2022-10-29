@@ -27,7 +27,10 @@ public class UserController {
     }
 
     /**
-     * 获取所有用户信息
+     *
+     * 获取所有用户信息请求
+     * todo 获取到所有的用户信息
+     * @return 返回查询到的结果
      */
     @GetMapping("/findUserAll")
     public Result<List<UserVo>> findUserAll() {

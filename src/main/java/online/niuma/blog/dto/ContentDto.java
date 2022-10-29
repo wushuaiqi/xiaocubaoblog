@@ -31,14 +31,9 @@ public class ContentDto {
      */
 
     private String articleId;
-
     private String contentId;
-
     private String articleTitle;
-
     private String contentText;
-
     private String userName;
-
     private Date createTime;
 }
