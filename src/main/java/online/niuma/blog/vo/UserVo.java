@@ -38,6 +38,9 @@ public class UserVo {
      */
     private String userEmail;
 
+    /**关联的邮箱*/
+    private String toEmail;
+
     /**
      * 创建时间
      */
