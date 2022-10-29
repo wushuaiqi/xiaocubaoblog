@@ -1,33 +1,40 @@
 package online.niuma.blog.utils;
 
-import lombok.Data;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 /**
  * @author 一颗蛋50斤
  * IntelliJ IDEA
  */
-@Data
 @Slf4j
+@Setter
+@Component
 public class MyEmail {
 
-    private String emailTitle;
-    private String emailContent;
+    @Value("${spring.mail.username}")
     private String fromEmail;
-    private String toEmail;
 
-    public void saveEmail() {
-        log.info("发生邮件给:{}", this.toEmail);
-        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-        simpleMailMessage.setSubject(this.emailTitle);
-        simpleMailMessage.setText(this.emailContent);
-        simpleMailMessage.setTo(this.toEmail);
-        simpleMailMessage.setFrom(this.fromEmail);
-        mailSender.send(simpleMailMessage);
+    @Resource
+    private JavaMailSenderImpl mailSender;
+
+    @Async
+    public void sendMail(String emailTitle, String emailContent, String toEmail) {
+        log.info("发生邮件给:{}", toEmail);
+        System.out.println("this.emailTitle = " + emailTitle);
+        System.out.println("emailTitle = " + emailTitle);
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setSubject(emailTitle);
+        message.setText(emailContent);
+        message.setTo(toEmail);
+        message.setFrom(fromEmail);
+        mailSender.send(message);
     }
 }

@@ -6,14 +6,10 @@ import online.niuma.blog.common.Result;
 import online.niuma.blog.service.ArticleService;
 import online.niuma.blog.utils.Constants;
 import online.niuma.blog.utils.MyEmail;
-import online.niuma.blog.vo.ArticleVo;
 import online.niuma.blog.vo.ContentVo;
 import online.niuma.blog.vo.UserVo;
 import online.niuma.blog.vo.params.ArticleParam;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -28,7 +24,7 @@ import javax.servlet.http.HttpSession;
 public class ArticleController {
 
     private ArticleService articleService;
-    private JavaMailSenderImpl mailSender;
+    private MyEmail myEmail;
 
     @Autowired
     public void setArticleService(ArticleService articleService) {
@@ -36,8 +32,8 @@ public class ArticleController {
     }
 
     @Autowired
-    public void setMailSender(JavaMailSenderImpl mailSender) {
-        this.mailSender = mailSender;
+    public void setMyEmail(MyEmail myEmail) {
+        this.myEmail = myEmail;
     }
 
     @PostMapping("/addArticle")
@@ -46,12 +42,9 @@ public class ArticleController {
         boolean isCommit = this.articleService.addArticle(articleParam);
         if (isCommit) {
             UserVo userInfo = (UserVo) session.getAttribute(Constants.USER_INFO);
-            SimpleMailMessage mailMessage = new SimpleMailMessage();
-            mailMessage.setSubject("niuma");
-            mailMessage.setText("email content");
-            mailMessage.setTo("2493378918@qq.com");
-            mailMessage.setFrom("2493378918@qq.com");
-            this.mailSender.send(mailMessage);
+            String emailContent = "Ta 又开始想你啦！" + userInfo.getUserName() + "发布了主题为:《" + articleParam.getArticleTitle() + "》的思念，快去小醋包里查看吧。";
+            log.info(myEmail.toString());
+            myEmail.sendMail("小醋包系统", emailContent, userInfo.getToEmail());
             return Result.success("提交成功");
         } else {
             return Result.fail(ErrorCode.COMMIT_ERROR.getCode(), ErrorCode.COMMIT_ERROR.getMsg());

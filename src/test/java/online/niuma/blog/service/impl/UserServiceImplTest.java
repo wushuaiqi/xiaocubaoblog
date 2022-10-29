@@ -29,7 +29,7 @@ class UserServiceImplTest {
     @Test
     void queryUserOne() {
         String username = "root";
-        String password = "passwd";
+        String password = "becfeaedd72b9f3aeefed8a69b8b3d5a";
         UserVo userVo = this.userService.queryUserOne(username, password);
         System.out.println("userVo = " + userVo);
     }
