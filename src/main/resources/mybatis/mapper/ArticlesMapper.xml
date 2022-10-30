@@ -33,7 +33,7 @@
             article_id,
             article_title,
             article_sketch,
-            (select user_name from xiaocubaoblog_db.tb_users where tb_users.user_id = a.user_id limit 1) as user_name,
+            (select user_nickname from xiaocubaoblog_db.tb_users where tb_users.user_id = a.user_id limit 1) as user_nickname,
             create_time
         from xiaocubaoblog_db.tb_articles a
         where deleted = 0

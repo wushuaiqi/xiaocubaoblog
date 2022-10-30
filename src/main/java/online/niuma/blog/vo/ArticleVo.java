@@ -11,7 +11,7 @@ public class ArticleVo {
     private String articleId;
     private String articleTitle;
     private String articleSketch;
-    private String userName;
+    private String userNickname;
     private String createTime;
 
 }
