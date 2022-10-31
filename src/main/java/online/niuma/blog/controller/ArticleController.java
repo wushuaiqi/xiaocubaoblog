@@ -54,7 +54,7 @@ public class ArticleController {
             UserVo userInfo = (UserVo) session.getAttribute(Constants.USER_INFO);
             // 定义邮件发送的内容
             String emailContent = "Ta 又开始想你啦！" + userInfo.getUserName() + "发布了主题为:《" +
-                    articleParam.getArticleTitle() + "》的思念，快去小醋包里查看吧。http://niuma.online";
+                    articleParam.getArticleTitle() + "》的思念，快去小醋包里查看吧。https://niuma.online";
             // 盗用定义好的邮件发送组件发送邮件
             // 异步发送
             myEmail.sendMail("小醋包系统", emailContent, userInfo.getToEmail());
